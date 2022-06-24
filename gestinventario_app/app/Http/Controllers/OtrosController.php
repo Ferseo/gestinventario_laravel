@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\atrezzo;
-use App\Http\Requests\StoreatrezzoRequest;
-use App\Http\Requests\UpdateatrezzoRequest;
+use App\Models\otros;
+use App\Http\Requests\StoreotrosRequest;
+use App\Http\Requests\UpdateotrosRequest;
 
-class AtrezzoController extends Controller
+class OtrosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,13 @@ class AtrezzoController extends Controller
      */
     public function getAll()
     {
-       $atrezzo =  Atrezzo::all();
-       if($atrezzo){
-        return response()->json($atrezzo);
-       }else{
-        echo 'no existe';
-    }
+        $otros =  otros::all();
+        if($otros){
+         echo 'Si existe payo';
+         return response()->json($otros);
+        }else{
+         echo 'no existe';
+     }
     }
 
     /**
@@ -36,10 +37,10 @@ class AtrezzoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreatrezzoRequest  $request
+     * @param  \App\Http\Requests\StoreotrosRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreatrezzoRequest $request)
+    public function store(StoreotrosRequest $request)
     {
         //
     }
@@ -47,10 +48,10 @@ class AtrezzoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Models\otros  $otros
      * @return \Illuminate\Http\Response
      */
-    public function show(atrezzo $atrezzo)
+    public function show(otros $otros)
     {
         //
     }
@@ -58,10 +59,10 @@ class AtrezzoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Models\otros  $otros
      * @return \Illuminate\Http\Response
      */
-    public function edit(atrezzo $atrezzo)
+    public function edit(otros $otros)
     {
         //
     }
@@ -69,11 +70,11 @@ class AtrezzoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateatrezzoRequest  $request
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Http\Requests\UpdateotrosRequest  $request
+     * @param  \App\Models\otros  $otros
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateatrezzoRequest $request, atrezzo $atrezzo)
+    public function update(UpdateotrosRequest $request, otros $otros)
     {
         //
     }
@@ -81,10 +82,10 @@ class AtrezzoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Models\otros  $otros
      * @return \Illuminate\Http\Response
      */
-    public function destroy(atrezzo $atrezzo)
+    public function destroy(otros $otros)
     {
         //
     }

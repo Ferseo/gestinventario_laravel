@@ -21,7 +21,7 @@ class CableadoController extends Controller
         echo 'Si existe payo';
         return response()->json($cableado);
        }else{
-        echo 'no gilipollas';
+        echo 'no existe';
     }
     }
 
@@ -46,10 +46,9 @@ class CableadoController extends Controller
         
         $cableado =  Cableado::create($request);
         if($cableado){
-         echo 'Si existe payo';
          return response()->json($cableado);
         }else{
-         echo 'no gilipollas';
+         echo 'no existe';
      }
     }
 

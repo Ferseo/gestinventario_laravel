@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\atrezzo;
-use App\Http\Requests\StoreatrezzoRequest;
-use App\Http\Requests\UpdateatrezzoRequest;
+use App\Models\iluminacion;
+use App\Http\Requests\StoreiluminacionRequest;
+use App\Http\Requests\UpdateiluminacionRequest;
 
-class AtrezzoController extends Controller
+class IluminacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,13 @@ class AtrezzoController extends Controller
      */
     public function getAll()
     {
-       $atrezzo =  Atrezzo::all();
-       if($atrezzo){
-        return response()->json($atrezzo);
-       }else{
-        echo 'no existe';
-    }
+        $iluminacion =  iluminacion::all();
+        if($iluminacion){
+         echo 'Si existe payo';
+         return response()->json($iluminacion);
+        }else{
+         echo 'no existe';
+     }
     }
 
     /**
@@ -36,10 +37,10 @@ class AtrezzoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreatrezzoRequest  $request
+     * @param  \App\Http\Requests\StoreiluminacionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreatrezzoRequest $request)
+    public function store(StoreiluminacionRequest $request)
     {
         //
     }
@@ -47,10 +48,10 @@ class AtrezzoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Models\iluminacion  $iluminacion
      * @return \Illuminate\Http\Response
      */
-    public function show(atrezzo $atrezzo)
+    public function show(iluminacion $iluminacion)
     {
         //
     }
@@ -58,10 +59,10 @@ class AtrezzoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Models\iluminacion  $iluminacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(atrezzo $atrezzo)
+    public function edit(iluminacion $iluminacion)
     {
         //
     }
@@ -69,11 +70,11 @@ class AtrezzoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateatrezzoRequest  $request
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Http\Requests\UpdateiluminacionRequest  $request
+     * @param  \App\Models\iluminacion  $iluminacion
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateatrezzoRequest $request, atrezzo $atrezzo)
+    public function update(UpdateiluminacionRequest $request, iluminacion $iluminacion)
     {
         //
     }
@@ -81,10 +82,10 @@ class AtrezzoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Models\iluminacion  $iluminacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(atrezzo $atrezzo)
+    public function destroy(iluminacion $iluminacion)
     {
         //
     }

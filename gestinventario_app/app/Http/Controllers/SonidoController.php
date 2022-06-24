@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\atrezzo;
-use App\Http\Requests\StoreatrezzoRequest;
-use App\Http\Requests\UpdateatrezzoRequest;
+use App\Models\sonido;
+use App\Http\Requests\StoresonidoRequest;
+use App\Http\Requests\UpdatesonidoRequest;
 
-class AtrezzoController extends Controller
+class SonidoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,13 @@ class AtrezzoController extends Controller
      */
     public function getAll()
     {
-       $atrezzo =  Atrezzo::all();
-       if($atrezzo){
-        return response()->json($atrezzo);
-       }else{
-        echo 'no existe';
-    }
+        $sonido =  sonido::all();
+        if($sonido){
+         echo 'Si existe payo';
+         return response()->json($sonido);
+        }else{
+         echo 'no existe';
+     }
     }
 
     /**
@@ -36,10 +37,10 @@ class AtrezzoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreatrezzoRequest  $request
+     * @param  \App\Http\Requests\StoresonidoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreatrezzoRequest $request)
+    public function store(StoresonidoRequest $request)
     {
         //
     }
@@ -47,10 +48,10 @@ class AtrezzoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Models\sonido  $sonido
      * @return \Illuminate\Http\Response
      */
-    public function show(atrezzo $atrezzo)
+    public function show(sonido $sonido)
     {
         //
     }
@@ -58,10 +59,10 @@ class AtrezzoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Models\sonido  $sonido
      * @return \Illuminate\Http\Response
      */
-    public function edit(atrezzo $atrezzo)
+    public function edit(sonido $sonido)
     {
         //
     }
@@ -69,11 +70,11 @@ class AtrezzoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateatrezzoRequest  $request
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Http\Requests\UpdatesonidoRequest  $request
+     * @param  \App\Models\sonido  $sonido
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateatrezzoRequest $request, atrezzo $atrezzo)
+    public function update(UpdatesonidoRequest $request, sonido $sonido)
     {
         //
     }
@@ -81,10 +82,10 @@ class AtrezzoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Models\sonido  $sonido
      * @return \Illuminate\Http\Response
      */
-    public function destroy(atrezzo $atrezzo)
+    public function destroy(sonido $sonido)
     {
         //
     }

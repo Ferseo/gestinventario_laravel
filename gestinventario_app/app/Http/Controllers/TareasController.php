@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\atrezzo;
-use App\Http\Requests\StoreatrezzoRequest;
-use App\Http\Requests\UpdateatrezzoRequest;
+use App\Models\tareas;
+use App\Http\Requests\StoretareasRequest;
+use App\Http\Requests\UpdatetareasRequest;
 
-class AtrezzoController extends Controller
+class TareasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,13 @@ class AtrezzoController extends Controller
      */
     public function getAll()
     {
-       $atrezzo =  Atrezzo::all();
-       if($atrezzo){
-        return response()->json($atrezzo);
-       }else{
-        echo 'no existe';
-    }
+        $tareas = tareas::all();
+        if($tareas){
+            echo "todo bien payo";
+            return response()->json($tareas);
+        }else{
+            echo "no existe";
+        }
     }
 
     /**
@@ -36,10 +37,10 @@ class AtrezzoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreatrezzoRequest  $request
+     * @param  \App\Http\Requests\StoretareasRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreatrezzoRequest $request)
+    public function store(StoretareasRequest $request)
     {
         //
     }
@@ -47,10 +48,10 @@ class AtrezzoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Models\tareas  $tareas
      * @return \Illuminate\Http\Response
      */
-    public function show(atrezzo $atrezzo)
+    public function show(tareas $tareas)
     {
         //
     }
@@ -58,10 +59,10 @@ class AtrezzoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Models\tareas  $tareas
      * @return \Illuminate\Http\Response
      */
-    public function edit(atrezzo $atrezzo)
+    public function edit(tareas $tareas)
     {
         //
     }
@@ -69,11 +70,11 @@ class AtrezzoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateatrezzoRequest  $request
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Http\Requests\UpdatetareasRequest  $request
+     * @param  \App\Models\tareas  $tareas
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateatrezzoRequest $request, atrezzo $atrezzo)
+    public function update(UpdatetareasRequest $request, tareas $tareas)
     {
         //
     }
@@ -81,10 +82,10 @@ class AtrezzoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\atrezzo  $atrezzo
+     * @param  \App\Models\tareas  $tareas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(atrezzo $atrezzo)
+    public function destroy(tareas $tareas)
     {
         //
     }
