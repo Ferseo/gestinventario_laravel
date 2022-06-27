@@ -14,6 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cableados', function (Blueprint $table) {
+            $table->string('tipoMaterial');
+            $table->string('cantidad');
+            $table->string('metos');
+            $table->string('ubicacion');
             $table->id();
             $table->timestamps();
         });

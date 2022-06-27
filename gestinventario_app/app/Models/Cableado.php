@@ -15,7 +15,6 @@ class Cableado extends Model
         'metos',
         'ubicacion',
         'codigo',
-
     ];
 
     protected $fillable = [
@@ -23,6 +22,7 @@ class Cableado extends Model
         'cantidad',
         'metos',
         'ubicacion',
-
     ];
+
+    public $timestamps = false;
 }

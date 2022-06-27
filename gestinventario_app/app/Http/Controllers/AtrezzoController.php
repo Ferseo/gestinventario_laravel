@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\atrezzo;
 use App\Http\Requests\StoreatrezzoRequest;
 use App\Http\Requests\UpdateatrezzoRequest;
+//use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 
 class AtrezzoController extends Controller
 {
@@ -20,7 +22,7 @@ class AtrezzoController extends Controller
         return response()->json($atrezzo);
        }else{
         echo 'no existe';
-    }
+        }
     }
 
     /**
@@ -39,9 +41,26 @@ class AtrezzoController extends Controller
      * @param  \App\Http\Requests\StoreatrezzoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreatrezzoRequest $request)
+    public function store_(StoreatrezzoRequest $request)
     {
-        //
+        
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request){
+        $data = $request->all();
+        $atrezzo = new Atrezzo;
+        $atrezzo->tipoMaterial = $data['tipoMaterial'];
+        $atrezzo->utilidad = $data['utilidad'];
+        $atrezzo->ubicacion = $data['ubicacion'];
+        $atrezzo->cantidad = $data['cantidad'];
+        $atrezzo->observaciones = $data['observaciones'];
+        $atrezzo->save();
     }
 
     /**

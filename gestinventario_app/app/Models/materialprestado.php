@@ -19,4 +19,18 @@ class materialprestado extends Model
         'trabajador_presta',
         'trabajador_recibe',
     ];
+
+    protected $fillable = [
+        'materialPrestado',
+        'diaRetirada',
+        'diaEntrega',
+        'estadooMaterial',
+        'observaciones',
+        'personaPrestamo',
+        'estado_devolucion',
+        'trabajador_presta',
+        'trabajador_recibe',
+    ];
+
+    public $timestamps = false;
 }

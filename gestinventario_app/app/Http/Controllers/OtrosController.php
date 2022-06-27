@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\otros;
 use App\Http\Requests\StoreotrosRequest;
 use App\Http\Requests\UpdateotrosRequest;
+use Illuminate\Http\Request;
 
 class OtrosController extends Controller
 {
@@ -40,9 +41,26 @@ class OtrosController extends Controller
      * @param  \App\Http\Requests\StoreotrosRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreotrosRequest $request)
+    public function store_(StoreotrosRequest $request)
     {
         //
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request){
+        $data = $request->all();
+        $otros = new Otros;
+        $otros->tipoMaterial = $data['tipoMaterial'];
+        $otros->cantidad = $data['cantidad'];
+        $otros->utilidad = $data['utilidad'];
+        $otros->ubicacion = $data['ubicacion'];
+        $otros->observaciones = $data['observaciones'];
+        $otros->save();
     }
 
     /**

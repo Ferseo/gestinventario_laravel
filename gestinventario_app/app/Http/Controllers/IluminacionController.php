@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\iluminacion;
 use App\Http\Requests\StoreiluminacionRequest;
 use App\Http\Requests\UpdateiluminacionRequest;
+use Illuminate\Http\Request;
 
 class IluminacionController extends Controller
 {
@@ -40,9 +41,31 @@ class IluminacionController extends Controller
      * @param  \App\Http\Requests\StoreiluminacionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreiluminacionRequest $request)
+    public function store_(StoreiluminacionRequest $request)
     {
         //
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request){
+        $data = $request->all();
+        $iluminations = new Iluminacion;
+        $iluminations->tipoMaterial = $data['tipoMaterial'];
+        $iluminations->marca = $data['marca'];
+        $iluminations->modelo = $data['modelo'];
+        $iluminations->cantidad = $data['cantidad'];
+        $iluminations->utilidad = $data['utilidad'];
+        $iluminations->ubicacion = $data['ubicacion'];
+        $iluminations->anioCompra = $data['anioCompra'];
+        $iluminations->tipoConexion = $data['tipoConexion'];
+        $iluminations->ultimaRevision = $data['ultimaRevision'];
+        $iluminations->observaciones = $data['Observaciones'];
+        $iluminations->save();
     }
 
     /**

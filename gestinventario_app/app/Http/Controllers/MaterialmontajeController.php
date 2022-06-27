@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\materialmontaje;
 use App\Http\Requests\StorematerialmontajeRequest;
 use App\Http\Requests\UpdatematerialmontajeRequest;
+use Illuminate\Http\Request;
 
 class MaterialmontajeController extends Controller
 {
@@ -40,10 +41,28 @@ class MaterialmontajeController extends Controller
      * @param  \App\Http\Requests\StorematerialmontajeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorematerialmontajeRequest $request)
+    public function store_(StorematerialmontajeRequest $request)
     {
         //
     }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request){
+        $data = $request->all();
+        $mat_montaje = new MaterialMontaje;
+        $mat_montaje->tipoMaterial = $data['tipoMaterial'];
+        $mat_montaje->cantidad = $data['cantidad'];
+        $mat_montaje->utilidad = $data['utilidad'];
+        $mat_montaje->ubicacion = $data['ubicacion'];
+        $mat_montaje->observaciones = $data['observaciones'];
+        $mat_montaje->save();
+    }
+
 
     /**
      * Display the specified resource.

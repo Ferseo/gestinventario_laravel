@@ -20,6 +20,21 @@ class iluminacion extends Model
         'anioCompra',
         'tipoConexion',
         'ultimaRevision',
-        'observaciones',
+        'Observaciones',
     ];
+
+    protected $fillable = [
+        'tipoMaterial',
+        'marca',
+        'modelo',
+        'cantidad',
+        'utilidad',
+        'ubicacion',
+        'anioCompra',
+        'tipoConexion',
+        'ultimaRevision',
+        'Observaciones',
+    ];
+
+    public $timestamps = false;
 }

@@ -17,4 +17,14 @@ class materialmontaje extends Model
         'observaciones',
         'codigo',
     ];
+
+    protected $fillable = [
+        'tipoMaterial',
+        'cantidad',
+        'utilidad',
+        'ubicacion',
+        'observaciones',
+    ];
+
+    public $timestamps = false;
 }

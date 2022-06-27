@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\video;
 use App\Http\Requests\StorevideoRequest;
 use App\Http\Requests\UpdatevideoRequest;
+use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
@@ -40,9 +41,31 @@ class VideoController extends Controller
      * @param  \App\Http\Requests\StorevideoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorevideoRequest $request)
+    public function store_(StorevideoRequest $request)
     {
         //
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request){
+        $data = $request->all();
+        $video = new Video;
+        $video->tipoMaterial = $data['tipoMaterial'];
+        $video->marca = $data['marca'];
+        $video->modelo = $data['modelo'];
+        $video->cantidad = $data['cantidad'];
+        $video->utilidad = $data['utilidad'];
+        $video->ubicacion = $data['ubicacion'];
+        $video->anioCompra = $data['anioCompra'];
+        $video->tipoConexion = $data['tipoConexion'];
+        $video->ultimaRevision = $data['ultimaRevision'];
+        $video->observaciones = $data['Observaciones'];
+        $video->save();
     }
 
     /**

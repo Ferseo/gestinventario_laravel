@@ -14,6 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tareas', function (Blueprint $table) {
+            $table->string('tipoTarea');
+            $table->string('trabajadorDesempenia');
+            $table->string('diaTarea');
+            $table->string('horarioTarea');
+            $table->string('lugarTarea');
+            $table->string('realizada');
             $table->id();
             $table->timestamps();
         });

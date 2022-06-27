@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\tareas;
 use App\Http\Requests\StoretareasRequest;
 use App\Http\Requests\UpdatetareasRequest;
+use Illuminate\Http\Request;
 
 class TareasController extends Controller
 {
@@ -40,9 +41,27 @@ class TareasController extends Controller
      * @param  \App\Http\Requests\StoretareasRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoretareasRequest $request)
+    public function store_(StoretareasRequest $request)
     {
         //
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request){
+        $data = $request->all();
+        $tarea = new tareas;
+        $tarea->tipoTarea = $data['tipoTarea'];
+        $tarea->trabajadorDesempenia = $data['trabajadorDesempenia'];
+        $tarea->diaTarea = $data['diaTarea'];
+        $tarea->horarioTarea = $data['horarioTarea'];
+        $tarea->lugarTarea = $data['lugarTarea'];
+        $tarea->realizada = "false";
+        $tarea->save();
     }
 
     /**

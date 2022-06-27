@@ -20,4 +20,18 @@ class credenciales extends Model
         'direccion',
         'telefono',
     ];
+
+    protected $fillable = [
+        'dni',
+        'nombre',
+        'apellidos',
+        'user',
+        'password',
+        'categoria',
+        'anio_ingreso',
+        'direccion',
+        'telefono',
+    ];
+
+    public $timestamps = false;
 }

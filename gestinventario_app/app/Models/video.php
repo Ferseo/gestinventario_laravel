@@ -19,6 +19,22 @@ class video extends Model
         'anioCompra',
         'tipoConexion',
         'ultimaRevision',
-        'observaciones',
+        'Observaciones',
     ];
+
+    protected $fillable = [
+        'codigo',
+        'tipoMaterial',
+        'marca',
+        'modelo',
+        'cantidad',
+        'utilidad',
+        'ubicacion',
+        'anioCompra',
+        'tipoConexion',
+        'ultimaRevision',
+        'Observaciones',
+    ];
+
+    public $timestamps = false;
 }

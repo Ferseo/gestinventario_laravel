@@ -14,6 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('materialprestados', function (Blueprint $table) {
+            $table->string('materialPrestado');
+            $table->string('diaRetirada');
+            $table->string('diaEntrega');
+            $table->string('estadoMaterial');
+            $table->string('observaciones');
+            $table->string('personaPrestamo');
+            $table->string('devuelto');
+            $table->string('estado_devolucion');
+            $table->string('trabajador_presta');
+            $table->string('trabajador_recibe');
             $table->id();
             $table->timestamps();
         });

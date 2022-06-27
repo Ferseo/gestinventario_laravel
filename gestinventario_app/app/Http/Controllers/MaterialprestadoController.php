@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\materialprestado;
 use App\Http\Requests\StorematerialprestadoRequest;
 use App\Http\Requests\UpdatematerialprestadoRequest;
+use Illuminate\Http\Request;
 
 class MaterialprestadoController extends Controller
 {
@@ -40,11 +41,33 @@ class MaterialprestadoController extends Controller
      * @param  \App\Http\Requests\StorematerialprestadoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorematerialprestadoRequest $request)
+    public function store_(StorematerialprestadoRequest $request)
     {
         //
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request){
+        $data = $request->all();
+        $mat_prestado = new materialprestado;
+        $mat_prestado->materialPrestado = $data['materialPrestado'];
+        $mat_prestado->diaRetirada = $data['diaRetirada'];
+        $mat_prestado->diaEntrega = $data['diaEntrega'];
+        $mat_prestado->estadoMaterial = $data['estadoMaterial'];
+        $mat_prestado->observaciones = $data['observaciones'];
+        $mat_prestado->personaPrestamo = $data['personaPrestamo'];
+        $mat_prestado->devuelto = "false";
+        $mat_prestado->estado_devolucion = $data['estado_devolucion'];
+        $mat_prestado->trabajador_presta = $data['trabajador_presta'];
+        $mat_prestado->trabajador_recibe = $data['trabajador_recibe'];
+        $mat_prestado->save();
+
+    }
     /**
      * Display the specified resource.
      *

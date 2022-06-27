@@ -14,6 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('credenciales', function (Blueprint $table) {
+            $table->string('dni');
+            $table->string('nombre');
+            $table->string('apellidos');
+            $table->string('user');
+            $table->string('password');
+            $table->string('categoria');
+            $table->string('anio_ingreso');
+            $table->string('direccion');
+            $table->string('telefono');
             $table->id();
             $table->timestamps();
         });

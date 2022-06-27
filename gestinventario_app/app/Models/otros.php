@@ -10,6 +10,21 @@ class otros extends Model
     use HasFactory;
 
     protected $otros = [
-        
+        'tipoMaterial',
+        'cantidad',
+        'utilidad',
+        'ubicacion',
+        'observaciones',
+        'codigo',
     ];
+
+    protected $fillable = [
+        'tipoMaterial',
+        'cantidad',
+        'utilidad',
+        'ubicacion',
+        'observaciones',
+    ];
+
+    public $timestamps = false;
 }

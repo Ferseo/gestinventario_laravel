@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\credenciales;
 use App\Http\Requests\StorecredencialesRequest;
 use App\Http\Requests\UpdatecredencialesRequest;
+use Illuminate\Http\Request;
 
 class CredencialesController extends Controller
 {
@@ -40,9 +41,30 @@ class CredencialesController extends Controller
      * @param  \App\Http\Requests\StorecredencialesRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorecredencialesRequest $request)
+    public function store_(StorecredencialesRequest $request)
     {
         //
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request){
+        $data = $request->all();
+        $credencial = new Credenciales;
+        $credencial->dni = $data['dni'];
+        $credencial->nombre = $data['nombre'];
+        $credencial->apellidos = $data['apellidos'];
+        $credencial->user = $data['user'];
+        $credencial->password = $data['password'];
+        $credencial->categoria = $data['categoria'];
+        $credencial->anio_ingreso = $data['anio_ingreso'];
+        $credencial->direccion = $data['direccion'];
+        $credencial->telefono = $data['telefono'];
+        $credencial->save();
     }
 
     /**

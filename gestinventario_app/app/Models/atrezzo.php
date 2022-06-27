@@ -18,4 +18,13 @@ class atrezzo extends Model
         'codigo',
     ];
     
+    protected $fillable = [
+        'tipoMaterial',
+        'utilidad',
+        'ubicacion',
+        'cantidad',
+        'observaciones',
+    ];
+
+    public $timestamps = false;
 }

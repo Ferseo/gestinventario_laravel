@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\sonido;
 use App\Http\Requests\StoresonidoRequest;
 use App\Http\Requests\UpdatesonidoRequest;
+use Illuminate\Http\Request;
 
 class SonidoController extends Controller
 {
@@ -40,9 +41,31 @@ class SonidoController extends Controller
      * @param  \App\Http\Requests\StoresonidoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoresonidoRequest $request)
+    public function store_(StoresonidoRequest $request)
     {
         //
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request){
+        $data = $request->all();
+        $sonido = new Sonido;
+        $sonido->tipoMaterial = $data['tipoMaterial'];
+        $sonido->marca = $data['marca'];
+        $sonido->modelo = $data['modelo'];
+        $sonido->cantidad = $data['cantidad'];
+        $sonido->utilidad = $data['utilidad'];
+        $sonido->ubicacion = $data['ubicacion'];
+        $sonido->anioCompra = $data['anioCompra'];
+        $sonido->tipoConexion = $data['tipoConexion'];
+        $sonido->ultimaRevision = $data['ultimaRevision'];
+        $sonido->observaciones = $data['Observaciones'];
+        $sonido->save();
     }
 
     /**

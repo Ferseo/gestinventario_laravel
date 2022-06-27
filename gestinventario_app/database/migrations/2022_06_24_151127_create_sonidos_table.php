@@ -14,6 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sonidos', function (Blueprint $table) {
+            $table->string('tipoMaterial');
+            $table->string('marca');
+            $table->string('modelo');
+            $table->string('cantidad');
+            $table->string('utilidad');
+            $table->string('ubicacion');
+            $table->string('anioCompra');
+            $table->string('tipoConexion');
+            $table->string('ultimaRevision');
+            $table->string('Observaciones');
             $table->id();
             $table->timestamps();
         });

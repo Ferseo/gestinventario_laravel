@@ -20,6 +20,21 @@ class sonido extends Model
         'anioCompra',
         'tipoConexion',
         'ultimaRevision',
+        'Observaciones',
+    ];
+
+    protected $fillable = [
+        'tipoMaterial',
+        'marca',
+        'modelo',
+        'cantidad',
+        'utilidad',
+        'ubicacion',
+        'anioCompra',
+        'tipoConexion',
+        'ultimaRevision',
         'observaciones',
     ];
+
+    public $timestamps = false;
 }

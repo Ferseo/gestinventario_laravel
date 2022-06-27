@@ -17,4 +17,14 @@ class tareas extends Model
         'lugarTarea',
         'cod_tarea',
     ];
+
+    protected $fillable = [
+        'tipoTarea',
+        'TrabajadorDesempenia',
+        'diaTarea',
+        'horarioTarea',
+        'lugarTarea',
+    ];
+
+    public $timestamps = false;
 }

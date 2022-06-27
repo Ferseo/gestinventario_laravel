@@ -6,6 +6,7 @@ use App\Models\Cableado;
 use App\Http\Requests\StoreCableadoRequest;
 use App\Http\Requests\UpdateCableadoRequest;
 use Illuminate\Http\Request;
+use Nette\Utils\Json;
 
 class CableadoController extends Controller
 {
@@ -18,11 +19,10 @@ class CableadoController extends Controller
     {
        $cableado =  Cableado::all();
        if($cableado){
-        echo 'Si existe payo';
         return response()->json($cableado);
        }else{
         echo 'no existe';
-    }
+       }
     }
 
     /**
@@ -38,18 +38,29 @@ class CableadoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCableadoRequest  $request
+     * @param  \App\Http\Requests\StoreCableadoRequest
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCableadoRequest $request)
-    {
-        
-        $cableado =  Cableado::create($request);
-        if($cableado){
-         return response()->json($cableado);
-        }else{
-         echo 'no existe';
-     }
+    public function store_(StoreCableadoRequest $request){
+
+
+    }
+   
+
+    /**
+     * Undocumented function
+     * @param  \App\Http\Requests\Request  $request
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request){
+        $data = $request->all();
+        $cableado = new Cableado;
+        $cableado->tipoMaterial = $data['tipoMaterial'];
+        $cableado->cantidad = $data['cantidad'];
+        $cableado->metos = $data['metos'];
+        $cableado->ubicacion = $data['ubicacion'];
+        $cableado->save();
     }
 
     /**
