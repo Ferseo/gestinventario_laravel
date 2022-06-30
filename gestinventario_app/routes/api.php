@@ -40,7 +40,8 @@ Route::controller(CableadoController::class)->group(function () {
 
 Route::controller(IluminacionController::class)->group(function () {
     Route::get('/iluminacion', 'getAll');
-    Route::post('/iluminacion/store', 'store');    
+    Route::post('/iluminacion/store', 'store');
+    Route::post('/iluminacion/update', 'update');    
 });
 
 Route::controller(MaterialmontajeController::class)->group(function () {

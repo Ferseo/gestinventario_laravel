@@ -100,9 +100,38 @@ class IluminacionController extends Controller
      * @param  \App\Models\iluminacion  $iluminacion
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateiluminacionRequest $request, iluminacion $iluminacion)
+    public function update(UpdateiluminacionRequest $request, iluminacion $iluminacion, int $id)
     {
-        //
+        //opcion 1
+        // $data = $iluminacion::find($id);
+        // $iluminacion->tipoMaterial = $request['tipoMaterial'];
+        // $iluminacion->marca = $request['marca'];
+        // $iluminacion->modelo = $request['modelo'];
+        // $iluminacion->cantidad = $request['cantidad'];
+        // $iluminacion->utilidad = $request['utilidad'];
+        // $iluminacion->ubicacion = $request['ubicacion'];
+        // $iluminacion->anioCompra = $request['anioCompra'];
+        // $iluminacion->tipoConexion = $request['tipoConexion'];
+        // $iluminacion->ultimaRevision = $request['ultimaRevision'];
+        // $iluminacion->Observaciones = $request['Observaciones'];
+        // $iluminacion->save();
+
+        //opcion 2
+        // iluminacion::where('codigo', $id)->update($request->all());
+
+        //opcion 3
+        // iluminacion::where('codigo', $id)->update(
+        //     $iluminacion->tipoMaterial = $request['tipoMaterial'],
+        //     $iluminacion->marca = $request['marca'],
+        //     $iluminacion->modelo = $request['modelo'],
+        //     $iluminacion->cantidad = $request['cantidad'],
+        //     $iluminacion->utilidad = $request['utilidad'],
+        //     $iluminacion->ubicacion = $request['ubicacion'],
+        //     $iluminacion->anioCompra = $request['anioCompra'],
+        //     $iluminacion->tipoConexion = $request['tipoConexion'],
+        //     $iluminacion->ultimaRevision = $request['ultimaRevision'],
+        //     $iluminacion->Observaciones = $request['Observaciones'],
+        // );
     }
 
     /**
