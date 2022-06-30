@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('tipoConexion');
             $table->string('ultimaRevision');
             $table->string('Observaciones');
-            $table->id();
             $table->timestamps();
         });
     }
