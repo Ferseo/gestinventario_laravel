@@ -100,7 +100,7 @@ class IluminacionController extends Controller
      * @param  \App\Models\iluminacion  $iluminacion
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateiluminacionRequest $request, iluminacion $iluminacion, int $id)
+    public function update(UpdateiluminacionRequest $request)
     {
         //opcion 1
         // $data = $iluminacion::find($id);
