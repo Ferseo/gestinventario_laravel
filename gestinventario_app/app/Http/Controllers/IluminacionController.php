@@ -56,21 +56,19 @@ class IluminacionController extends Controller
      * @return void
      */
     public function store(Request $request){
-        // $data = $request->all();
-        // $iluminations = new Iluminacion;
-        iluminacion::create([$request]);
-        return response()->json(['response' => 'Insertado con éxito'], 200);
-        // $iluminations->tipoMaterial = $data['tipoMaterial'];
-        // $iluminations->marca = $data['marca'];
-        // $iluminations->modelo = $data['modelo'];
-        // $iluminations->cantidad = $data['cantidad'];
-        // $iluminations->utilidad = $data['utilidad'];
-        // $iluminations->ubicacion = $data['ubicacion'];
-        // $iluminations->anioCompra = $data['anioCompra'];
-        // $iluminations->tipoConexion = $data['tipoConexion'];
-        // $iluminations->ultimaRevision = $data['ultimaRevision'];
-        // $iluminations->observaciones = $data['Observaciones'];
-        // $iluminations->save();
+        iluminacion::create([
+            'tipoMaterial' => $request['tipoMaterial'],
+            'marca' => $request['marca'],
+            'modelo' => $request['modelo'],
+            'cantidad' => $request['cantidad'],
+            'utilidad' => $request['utilidad'],
+            'ubicacion' => $request['ubicacion'],
+            'anioCompra' => $request['anioCompra'],
+            'tipoConexion' => $request['tipoConexion'],
+            'ultimaRevision' => $request['ultimaRevision'],
+            'Observaciones' => $request['Observaciones'],
+        ]);
+        //return response()->json(['response' => 'Insertado con éxito'], 200);
     }
 
     /**

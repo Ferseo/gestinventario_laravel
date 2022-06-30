@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('iluminacions', function (Blueprint $table) {
+            $table->increments('codigo');
             $table->string('tipoMaterial');
             $table->string('marca');
             $table->string('modelo');

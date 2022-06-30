@@ -53,18 +53,17 @@ class CredencialesController extends Controller
      * @return void
      */
     public function store(Request $request){
-        $data = $request->all();
-        $credencial = new Credenciales;
-        $credencial->dni = $data['dni'];
-        $credencial->nombre = $data['nombre'];
-        $credencial->apellidos = $data['apellidos'];
-        $credencial->user = $data['user'];
-        $credencial->password = $data['password'];
-        $credencial->categoria = $data['categoria'];
-        $credencial->anio_ingreso = $data['anio_ingreso'];
-        $credencial->direccion = $data['direccion'];
-        $credencial->telefono = $data['telefono'];
-        $credencial->save();
+        credenciales::create([
+            'dni' => $request['dni'],
+            'nombre' => $request['nombre'],
+            'apellidos' => $request['apellidos'],
+            'user' => $request['user'],
+            'password' => $request['password'],
+            'categoria' => $request['categoria'],
+            'anio_ingreso' => $request['anio_ingreso'],
+            'direccion' => $request['direccion'],
+            'telfono' => $request['telefono'],
+        ]);
     }
 
     /**

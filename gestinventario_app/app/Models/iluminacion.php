@@ -36,5 +36,7 @@ class iluminacion extends Model
         'Observaciones',
     ];
 
+   
+
     public $timestamps = false;
 }

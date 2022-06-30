@@ -53,14 +53,13 @@ class OtrosController extends Controller
      * @return void
      */
     public function store(Request $request){
-        $data = $request->all();
-        $otros = new Otros;
-        $otros->tipoMaterial = $data['tipoMaterial'];
-        $otros->cantidad = $data['cantidad'];
-        $otros->utilidad = $data['utilidad'];
-        $otros->ubicacion = $data['ubicacion'];
-        $otros->observaciones = $data['observaciones'];
-        $otros->save();
+        otros::create([
+            'tipoMaterial' => $request['tipoMaterial'],
+            'cantidad' => $request['cantidad'],
+            'utilidad' => $request['utilidad'],
+            'ubicacion' => $request['ubicacion'],
+            'Observaciones' => $request['Observaciones'],
+        ]);
     }
 
     /**

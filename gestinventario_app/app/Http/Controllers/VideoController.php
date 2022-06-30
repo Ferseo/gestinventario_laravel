@@ -53,19 +53,18 @@ class VideoController extends Controller
      * @return void
      */
     public function store(Request $request){
-        $data = $request->all();
-        $video = new Video;
-        $video->tipoMaterial = $data['tipoMaterial'];
-        $video->marca = $data['marca'];
-        $video->modelo = $data['modelo'];
-        $video->cantidad = $data['cantidad'];
-        $video->utilidad = $data['utilidad'];
-        $video->ubicacion = $data['ubicacion'];
-        $video->anioCompra = $data['anioCompra'];
-        $video->tipoConexion = $data['tipoConexion'];
-        $video->ultimaRevision = $data['ultimaRevision'];
-        $video->observaciones = $data['Observaciones'];
-        $video->save();
+        video::create([
+            'tipoMaterial' => $request['tipoMaterial'],
+            'marca' => $request['marca'],
+            'modelo' => $request['modelo'],
+            'cantidad' => $request['cantidad'],
+            'utilidad' => $request['utilidad'],
+            'ubicacion' => $request['ubicacion'],
+            'anioCompra' => $request['anioCompra'],
+            'tipoConexion' => $request['tipoConexion'],
+            'ultimaRevision' => $request['ultimaRevision'],
+            'Observaciones' => $request['Observaciones'],
+        ]);
     }
 
     /**

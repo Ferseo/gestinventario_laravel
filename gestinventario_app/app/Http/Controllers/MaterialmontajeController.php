@@ -53,14 +53,13 @@ class MaterialmontajeController extends Controller
      * @return void
      */
     public function store(Request $request){
-        $data = $request->all();
-        $mat_montaje = new MaterialMontaje;
-        $mat_montaje->tipoMaterial = $data['tipoMaterial'];
-        $mat_montaje->cantidad = $data['cantidad'];
-        $mat_montaje->utilidad = $data['utilidad'];
-        $mat_montaje->ubicacion = $data['ubicacion'];
-        $mat_montaje->observaciones = $data['observaciones'];
-        $mat_montaje->save();
+        materialmontaje::create([
+            'tipoMaterial' => $request['tipoMaterial'],
+            'cantidad' => $request['cantidad'],
+            'utilidad' => $request['utilidad'],
+            'ubicacion' => $request['ubicacion'],
+            'Observaciones' => $request['Observaciones'],
+        ]);
     }
 
 

@@ -53,20 +53,18 @@ class MaterialprestadoController extends Controller
      * @return void
      */
     public function store(Request $request){
-        $data = $request->all();
-        $mat_prestado = new materialprestado;
-        $mat_prestado->materialPrestado = $data['materialPrestado'];
-        $mat_prestado->diaRetirada = $data['diaRetirada'];
-        $mat_prestado->diaEntrega = $data['diaEntrega'];
-        $mat_prestado->estadoMaterial = $data['estadoMaterial'];
-        $mat_prestado->observaciones = $data['observaciones'];
-        $mat_prestado->personaPrestamo = $data['personaPrestamo'];
-        $mat_prestado->devuelto = "false";
-        $mat_prestado->estado_devolucion = $data['estado_devolucion'];
-        $mat_prestado->trabajador_presta = $data['trabajador_presta'];
-        $mat_prestado->trabajador_recibe = $data['trabajador_recibe'];
-        $mat_prestado->save();
-
+        materialprestado::create([
+            'materialPrestado' => $request['materialPrestado'],
+            'diaRetirada' => $request['diaRetirada'],
+            'diaEntrega' => $request['diaEntrega'],
+            'estadoMaterial' => $request['estadoMaterial'],
+            'observaciones' => $request['observaciones'],
+            'personaPrestamo' => $request['personaPrestamo'],
+            'devuelto' => "false",
+            'estado_devolucion' => $request['estado_devolucion'],
+            'trabajador_presta' => $request['trabajador_presta'],
+            'trabajador_recibe' => $request['trabajador_recibe'],
+        ]);
     }
     /**
      * Display the specified resource.

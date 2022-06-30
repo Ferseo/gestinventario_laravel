@@ -53,15 +53,14 @@ class TareasController extends Controller
      * @return void
      */
     public function store(Request $request){
-        $data = $request->all();
-        $tarea = new tareas;
-        $tarea->tipoTarea = $data['tipoTarea'];
-        $tarea->trabajadorDesempenia = $data['trabajadorDesempenia'];
-        $tarea->diaTarea = $data['diaTarea'];
-        $tarea->horarioTarea = $data['horarioTarea'];
-        $tarea->lugarTarea = $data['lugarTarea'];
-        $tarea->realizada = "false";
-        $tarea->save();
+        tareas::create([
+            'tipoTarea' => $request['tipoTarea'],
+            'trabajadorDesempenia' => $request['trabajadorDesempenia'],
+            'diaTarea' => $request['diaTarea'],
+            'horarioTarea' => $request['horarioTarea'],
+            'lugarTarea' => $request['lugarTarea'],
+            'realizada' => "false",
+        ]);
     }
 
     /**

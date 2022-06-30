@@ -54,13 +54,12 @@ class CableadoController extends Controller
      * @return void
      */
     public function store(Request $request){
-        $data = $request->all();
-        $cableado = new Cableado;
-        $cableado->tipoMaterial = $data['tipoMaterial'];
-        $cableado->cantidad = $data['cantidad'];
-        $cableado->metos = $data['metos'];
-        $cableado->ubicacion = $data['ubicacion'];
-        $cableado->save();
+        cableado::create([
+            'tipoMaterial' => $request['tipoMaterial'],
+            'cantidad' => $request['cantidad'],
+            'metos' => $request['metos'],
+            'ubicacion' => $request['ubicacion'],
+        ]);
     }
 
     /**

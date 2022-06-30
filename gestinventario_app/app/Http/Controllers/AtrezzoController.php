@@ -53,14 +53,13 @@ class AtrezzoController extends Controller
      * @return void
      */
     public function store(Request $request){
-        $data = $request->all();
-        $atrezzo = new Atrezzo;
-        $atrezzo->tipoMaterial = $data['tipoMaterial'];
-        $atrezzo->utilidad = $data['utilidad'];
-        $atrezzo->ubicacion = $data['ubicacion'];
-        $atrezzo->cantidad = $data['cantidad'];
-        $atrezzo->observaciones = $data['observaciones'];
-        $atrezzo->save();
+        atrezzo::create([
+            'tipoMaterial' => $request['tipoMaterial'],
+            'utilidad' => $request['utilidad'],
+            'ubicacion' => $request['ubicacion'],
+            'cantidad' => $request['cantidad'],
+            'observaciones' => $request['observaciones'],
+        ]);
     }
 
     /**
