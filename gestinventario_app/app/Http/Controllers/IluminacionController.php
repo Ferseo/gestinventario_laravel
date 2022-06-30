@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class IluminacionController extends Controller
 {
+
+    
+
     /**
      * Display a listing of the resource.
      *
@@ -53,19 +56,21 @@ class IluminacionController extends Controller
      * @return void
      */
     public function store(Request $request){
-        $data = $request->all();
-        $iluminations = new Iluminacion;
-        $iluminations->tipoMaterial = $data['tipoMaterial'];
-        $iluminations->marca = $data['marca'];
-        $iluminations->modelo = $data['modelo'];
-        $iluminations->cantidad = $data['cantidad'];
-        $iluminations->utilidad = $data['utilidad'];
-        $iluminations->ubicacion = $data['ubicacion'];
-        $iluminations->anioCompra = $data['anioCompra'];
-        $iluminations->tipoConexion = $data['tipoConexion'];
-        $iluminations->ultimaRevision = $data['ultimaRevision'];
-        $iluminations->observaciones = $data['Observaciones'];
-        $iluminations->save();
+        // $data = $request->all();
+        // $iluminations = new Iluminacion;
+        iluminacion::create([$request]);
+        return response()->json(['response' => 'Insertado con éxito'], 200);
+        // $iluminations->tipoMaterial = $data['tipoMaterial'];
+        // $iluminations->marca = $data['marca'];
+        // $iluminations->modelo = $data['modelo'];
+        // $iluminations->cantidad = $data['cantidad'];
+        // $iluminations->utilidad = $data['utilidad'];
+        // $iluminations->ubicacion = $data['ubicacion'];
+        // $iluminations->anioCompra = $data['anioCompra'];
+        // $iluminations->tipoConexion = $data['tipoConexion'];
+        // $iluminations->ultimaRevision = $data['ultimaRevision'];
+        // $iluminations->observaciones = $data['Observaciones'];
+        // $iluminations->save();
     }
 
     /**
