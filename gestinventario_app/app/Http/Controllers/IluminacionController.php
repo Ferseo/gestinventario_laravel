@@ -56,19 +56,16 @@ class IluminacionController extends Controller
      * @return void
      */
     public function store(Request $request){
-        iluminacion::create([
-            'tipoMaterial' => $request['tipoMaterial'],
-            'marca' => $request['marca'],
-            'modelo' => $request['modelo'],
-            'cantidad' => $request['cantidad'],
-            'utilidad' => $request['utilidad'],
-            'ubicacion' => $request['ubicacion'],
-            'anioCompra' => $request['anioCompra'],
-            'tipoConexion' => $request['tipoConexion'],
-            'ultimaRevision' => $request['ultimaRevision'],
-            'Observaciones' => $request['Observaciones'],
-        ]);
-        //return response()->json(['response' => 'Insertado con éxito'], 200);
+
+        $iluminacion = json_decode($request->getContent(), true);
+        $iluminacionCreated = iluminacion::create($iluminacion)->get();
+      
+        if($iluminacionCreated){
+            return response()->json(['response' => 'Insertado con éxito'], 200);
+        }
+        else{
+            return response()->json(['response' => 'no funciona'], 200);
+        }
     }
 
     /**
