@@ -53,18 +53,15 @@ class SonidoController extends Controller
      * @return void
      */
     public function store(Request $request){
-        sonido::create([
-            'tipoMaterial' => $request['tipoMaterial'],
-            'marca' => $request['marca'],
-            'modelo' => $request['modelo'],
-            'cantidad' => $request['cantidad'],
-            'utilidad' => $request['utilidad'],
-            'ubicacion' => $request['ubicacion'],
-            'anioCompra' => $request['anioCompra'],
-            'tipoConexion' => $request['tipoConexion'],
-            'ultimaRevision' => $request['ultimaRevision'],
-            'Observaciones' => $request['Observaciones'],
-        ]);
+        $sonido = json_decode($request->getContent(), true);
+        $sonidoCreated = sonido::create($sonido)->get();
+      
+        if($sonidoCreated){
+            return response()->json(['response' => 'Insertado con éxito'], 200);
+        }
+        else{
+            return response()->json(['response' => 'no funciona'], 200);
+        }
     }
 
     /**

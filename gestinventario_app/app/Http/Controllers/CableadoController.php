@@ -54,12 +54,15 @@ class CableadoController extends Controller
      * @return void
      */
     public function store(Request $request){
-        cableado::create([
-            'tipoMaterial' => $request['tipoMaterial'],
-            'cantidad' => $request['cantidad'],
-            'metos' => $request['metos'],
-            'ubicacion' => $request['ubicacion'],
-        ]);
+        $cableado = json_decode($request->getContent(), true);
+        $cableadoCreated = Cableado::create($cableado)->get();
+      
+        if($cableadoCreated){
+            return response()->json(['response' => 'Insertado con éxito'], 200);
+        }
+        else{
+            return response()->json(['response' => 'no funciona'], 200);
+        }
     }
 
     /**

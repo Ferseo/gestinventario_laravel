@@ -53,18 +53,15 @@ class MaterialprestadoController extends Controller
      * @return void
      */
     public function store(Request $request){
-        materialprestado::create([
-            'materialPrestado' => $request['materialPrestado'],
-            'diaRetirada' => $request['diaRetirada'],
-            'diaEntrega' => $request['diaEntrega'],
-            'estadoMaterial' => $request['estadoMaterial'],
-            'observaciones' => $request['observaciones'],
-            'personaPrestamo' => $request['personaPrestamo'],
-            'devuelto' => "false",
-            'estado_devolucion' => $request['estado_devolucion'],
-            'trabajador_presta' => $request['trabajador_presta'],
-            'trabajador_recibe' => $request['trabajador_recibe'],
-        ]);
+        $material_prestado = json_decode($request->getContent(), true);
+        $material_prestadoCreated = materialprestado::create($material_prestado)->get();
+      
+        if($material_prestadoCreated){
+            return response()->json(['response' => 'Insertado con éxito'], 200);
+        }
+        else{
+            return response()->json(['response' => 'no funciona'], 200);
+        }
     }
     /**
      * Display the specified resource.

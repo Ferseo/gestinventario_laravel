@@ -53,13 +53,14 @@ class AtrezzoController extends Controller
      * @return void
      */
     public function store(Request $request){
-        atrezzo::create([
-            'tipoMaterial' => $request['tipoMaterial'],
-            'utilidad' => $request['utilidad'],
-            'ubicacion' => $request['ubicacion'],
-            'cantidad' => $request['cantidad'],
-            'observaciones' => $request['observaciones'],
-        ]);
+        $atrezzo = json_decode($request->getContent(), true);
+        $atrezzoCreated = atrezzo::create($atrezzo)->get();
+        if($atrezzoCreated){
+            return response()->json(['response' => 'Insertado con éxito'], 200);
+        }
+        else{
+            return response()->json(['response' => 'no funciona'], 200);
+        }
     }
 
     /**

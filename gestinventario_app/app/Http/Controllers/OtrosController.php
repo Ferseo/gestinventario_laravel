@@ -53,13 +53,15 @@ class OtrosController extends Controller
      * @return void
      */
     public function store(Request $request){
-        otros::create([
-            'tipoMaterial' => $request['tipoMaterial'],
-            'cantidad' => $request['cantidad'],
-            'utilidad' => $request['utilidad'],
-            'ubicacion' => $request['ubicacion'],
-            'Observaciones' => $request['Observaciones'],
-        ]);
+        $otros = json_decode($request->getContent(), true);
+        $otrosCreated = otros::create($otros)->get();
+      
+        if($otrosCreated){
+            return response()->json(['response' => 'Insertado con éxito'], 200);
+        }
+        else{
+            return response()->json(['response' => 'no funciona'], 200);
+        }
     }
 
     /**

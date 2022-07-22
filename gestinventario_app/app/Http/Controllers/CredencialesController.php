@@ -53,17 +53,15 @@ class CredencialesController extends Controller
      * @return void
      */
     public function store(Request $request){
-        credenciales::create([
-            'dni' => $request['dni'],
-            'nombre' => $request['nombre'],
-            'apellidos' => $request['apellidos'],
-            'user' => $request['user'],
-            'password' => $request['password'],
-            'categoria' => $request['categoria'],
-            'anio_ingreso' => $request['anio_ingreso'],
-            'direccion' => $request['direccion'],
-            'telfono' => $request['telefono'],
-        ]);
+        $credenciales = json_decode($request->getContent(), true);
+        $credencialesCreated = credenciales::create($credenciales)->get();
+      
+        if($credencialesCreated){
+            return response()->json(['response' => 'Insertado con éxito'], 200);
+        }
+        else{
+            return response()->json(['response' => 'no funciona'], 200);
+        }
     }
 
     /**

@@ -53,14 +53,15 @@ class TareasController extends Controller
      * @return void
      */
     public function store(Request $request){
-        tareas::create([
-            'tipoTarea' => $request['tipoTarea'],
-            'trabajadorDesempenia' => $request['trabajadorDesempenia'],
-            'diaTarea' => $request['diaTarea'],
-            'horarioTarea' => $request['horarioTarea'],
-            'lugarTarea' => $request['lugarTarea'],
-            'realizada' => "false",
-        ]);
+        $tareas = json_decode($request->getContent(), true);
+        $tareasCreated = tareas::create($tareas)->get();
+      
+        if($tareasCreated){
+            return response()->json(['response' => 'Insertado con éxito'], 200);
+        }
+        else{
+            return response()->json(['response' => 'no funciona'], 200);
+        }
     }
 
     /**
