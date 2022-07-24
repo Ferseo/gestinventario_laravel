@@ -81,9 +81,13 @@ class OtrosController extends Controller
      * @param  \App\Models\otros  $otros
      * @return \Illuminate\Http\Response
      */
-    public function edit(otros $otros)
+    public function edit(Request $request, otros $otros)
     {
-        //
+        $requestObj = $request->all();
+        $code = $requestObj['codigo'];
+        unset($requestObj['codigo']);
+        $otrosDB = otros::where('codigo', $code)->update($requestObj);
+        // return $otrosDB;
     }
 
     /**

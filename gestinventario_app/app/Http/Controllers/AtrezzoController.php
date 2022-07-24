@@ -80,9 +80,13 @@ class AtrezzoController extends Controller
      * @param  \App\Models\atrezzo  $atrezzo
      * @return \Illuminate\Http\Response
      */
-    public function edit(atrezzo $atrezzo)
+    public function edit(Request $request,atrezzo $atrezzo)
     {
-        //
+        $requestObj = $request->all();
+        $code = $requestObj['codigo'];
+        unset($requestObj['codigo']);
+        $atrezzoDB = atrezzo::where('codigo', $code)->update($requestObj);
+        // return $atrezzoDB;
     }
 
     /**

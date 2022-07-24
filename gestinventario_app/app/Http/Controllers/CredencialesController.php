@@ -81,9 +81,13 @@ class CredencialesController extends Controller
      * @param  \App\Models\credenciales  $credenciales
      * @return \Illuminate\Http\Response
      */
-    public function edit(credenciales $credenciales)
+    public function edit(Request $request,credenciales $credenciales)
     {
-        //
+        $requestObj = $request->all();
+        $code = $requestObj['dni'];
+        unset($requestObj['dni']);
+        $credencialesDB = credenciales::where('dni', $code)->update($requestObj);
+        // return $credencialesDB;
     }
 
     /**

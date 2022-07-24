@@ -85,9 +85,13 @@ class IluminacionController extends Controller
      * @param  \App\Models\iluminacion  $iluminacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(iluminacion $iluminacion)
+    public function edit(Request $request, iluminacion $iluminacion)
     {
-        //
+        $requestObj = $request->all();
+        $code = $requestObj['codigo'];
+        unset($requestObj['codigo']);
+        $iluminacionDB = iluminacion::where('codigo', $code)->update($requestObj);
+        // return $iluminacionDB;
     }
 
     /**

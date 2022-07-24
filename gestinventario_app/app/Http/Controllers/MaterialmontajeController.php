@@ -62,13 +62,6 @@ class MaterialmontajeController extends Controller
         else{
             return response()->json(['response' => 'no funciona'], 200);
         }
-        // materialmontaje::create([
-        //     'tipoMaterial' => $request['tipoMaterial'],
-        //     'cantidad' => $request['cantidad'],
-        //     'utilidad' => $request['utilidad'],
-        //     'ubicacion' => $request['ubicacion'],
-        //     'Observaciones' => $request['Observaciones'],
-        // ]);
     }
 
 
@@ -89,9 +82,13 @@ class MaterialmontajeController extends Controller
      * @param  \App\Models\materialmontaje  $materialmontaje
      * @return \Illuminate\Http\Response
      */
-    public function edit(materialmontaje $materialmontaje)
+    public function edit(Request $request, materialmontaje $materialmontaje)
     {
-        //
+        $requestObj = $request->all();
+        $code = $requestObj['codigo'];
+        unset($requestObj['codigo']);
+        $mat_montajeDB = materialmontaje::where('codigo', $code)->update($requestObj);
+        // return $mat_montajeDB;
     }
 
     /**

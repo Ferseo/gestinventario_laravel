@@ -80,9 +80,13 @@ class MaterialprestadoController extends Controller
      * @param  \App\Models\materialprestado  $materialprestado
      * @return \Illuminate\Http\Response
      */
-    public function edit(materialprestado $materialprestado)
+    public function edit(Request $request, materialprestado $materialprestado)
     {
-        //
+        $requestObj = $request->all();
+        $code = $requestObj['codigo'];
+        unset($requestObj['codigo']);
+        $mat_prestadoDB = materialprestado::where('codigo', $code)->update($requestObj);
+        // return $mat_prestadoDB;
     }
 
     /**

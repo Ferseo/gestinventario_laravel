@@ -81,9 +81,13 @@ class TareasController extends Controller
      * @param  \App\Models\tareas  $tareas
      * @return \Illuminate\Http\Response
      */
-    public function edit(tareas $tareas)
+    public function edit(Request $request,tareas $tareas)
     {
-        //
+        $requestObj = $request->all();
+        $code = $requestObj['codigo'];
+        unset($requestObj['codigo']);
+        $tareaDB = tareas::where('cod_tarea', $code)->update($requestObj);
+        // return $tareaDB;
     }
 
     /**

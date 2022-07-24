@@ -82,9 +82,13 @@ class CableadoController extends Controller
      * @param  \App\Models\Cableado  $cableado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cableado $cableado)
+    public function edit(Request $request,Cableado $cableado)
     {
-        //
+        $requestObj = $request->all();
+        $code = $requestObj['codigo'];
+        unset($requestObj['codigo']);
+        $cableadoDB = Cableado::where('codigo', $code)->update($requestObj);
+        // return $cableadoDB;
     }
 
     /**

@@ -71,7 +71,8 @@ Route::controller(TareasController::class)->group(function () {
 
 Route::controller(VideoController::class)->group(function () {
     Route::get('/video', 'getAll');  
-    Route::post('/video/store', 'store');  
+    Route::post('/video/store', 'store');
+    Route::put('/video/edit', 'edit');  
 });
 
 Route::controller(CredencialesController::class)->group(function () {

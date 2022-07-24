@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\video;
 use App\Http\Requests\StorevideoRequest;
 use App\Http\Requests\UpdatevideoRequest;
+use ArrayObject;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class VideoController extends Controller
 {
@@ -72,7 +74,7 @@ class VideoController extends Controller
      */
     public function show(video $video)
     {
-        //
+
     }
 
     /**
@@ -81,11 +83,15 @@ class VideoController extends Controller
      * @param  \App\Models\video  $video
      * @return \Illuminate\Http\Response
      */
-    public function edit(video $video)
+    public function edit(Request $request, Video $video)
     {
-        //
+        $requestObj = $request->all();
+        $code = $requestObj['codigo'];
+        unset($requestObj['codigo']);
+        $videoDB = video::where('codigo', $code)->update($requestObj);
+        // return $videoDB;
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -93,7 +99,7 @@ class VideoController extends Controller
      * @param  \App\Models\video  $video
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatevideoRequest $request, video $video)
+    public function update2(UpdatevideoRequest $request, video $video)
     {
         //
     }

@@ -81,9 +81,13 @@ class SonidoController extends Controller
      * @param  \App\Models\sonido  $sonido
      * @return \Illuminate\Http\Response
      */
-    public function edit(sonido $sonido)
+    public function edit(Request $request,sonido $sonido)
     {
-        //
+        $requestObj = $request->all();
+        $code = $requestObj['codigo'];
+        unset($requestObj['codigo']);
+        $sonidoDB = sonido::where('codigo', $code)->update($requestObj);
+        // return $sonidoDB;
     }
 
     /**
