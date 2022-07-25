@@ -5,34 +5,41 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class sonido extends Model
+class Material extends Model
 {
     use HasFactory;
 
-    protected $sonido = [
-        'codigo',
-        'tipoMaterial',
+    
+    protected $material = [
+        'id',
+        'categoria',
+        'tipo_Material',
         'marca',
         'modelo',
         'cantidad',
         'utilidad',
+        'metros',
         'ubicacion',
-        'anioCompra',
-        'tipoConexion',
-        'ultimaRevision',
-        'Observaciones',
+        'anio_compra',
+        'tipo_conexion',
+        'ult_revision',
+        'is_active',
+        'observaciones',
     ];
 
     protected $fillable = [
-        'tipoMaterial',
+        'categoria',
+        'tipo_Material',
         'marca',
         'modelo',
         'cantidad',
         'utilidad',
+        'metros',
         'ubicacion',
-        'anioCompra',
-        'tipoConexion',
-        'ultimaRevision',
+        'anio_compra',
+        'tipo_conexion',
+        'ult_revision',
+        'is_active',
         'observaciones',
     ];
 

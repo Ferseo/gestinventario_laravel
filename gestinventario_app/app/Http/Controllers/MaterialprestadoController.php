@@ -83,9 +83,9 @@ class MaterialprestadoController extends Controller
     public function edit(Request $request, materialprestado $materialprestado)
     {
         $requestObj = $request->all();
-        $code = $requestObj['codigo'];
-        unset($requestObj['codigo']);
-        $mat_prestadoDB = materialprestado::where('codigo', $code)->update($requestObj);
+        $code = $requestObj['id'];
+        unset($requestObj['id']);
+        $mat_prestadoDB = materialprestado::where('id', $code)->update($requestObj);
         // return $mat_prestadoDB;
     }
 

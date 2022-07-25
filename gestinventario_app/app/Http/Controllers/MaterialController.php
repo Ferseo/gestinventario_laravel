@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\sonido;
-use App\Http\Requests\StoresonidoRequest;
-use App\Http\Requests\UpdatesonidoRequest;
+use App\Models\Material;
+use App\Http\Requests\StoreMaterialRequest;
+use App\Http\Requests\UpdateMaterialRequest;
 use Illuminate\Http\Request;
 
-class SonidoController extends Controller
+class MaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,10 @@ class SonidoController extends Controller
      */
     public function getAll()
     {
-        $sonido =  sonido::all();
-        if($sonido){
+        $material =  Material::all();
+        if($material){
          echo 'Si existe payo';
-         return response()->json($sonido);
+         return response()->json($material);
         }else{
          echo 'no existe';
      }
@@ -32,16 +32,16 @@ class SonidoController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoresonidoRequest  $request
+     * @param  \App\Http\Requests\StoreMaterialRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store_(StoresonidoRequest $request)
+    public function store_(StoreMaterialRequest $request)
     {
         //
     }
@@ -53,10 +53,10 @@ class SonidoController extends Controller
      * @return void
      */
     public function store(Request $request){
-        $sonido = json_decode($request->getContent(), true);
-        $sonidoCreated = sonido::create($sonido)->get();
+        $material = json_decode($request->getContent(), true);
+        $materialCreated = Material::create($material)->get();
       
-        if($sonidoCreated){
+        if($materialCreated){
             return response()->json(['response' => 'Insertado con éxito'], 200);
         }
         else{
@@ -67,10 +67,10 @@ class SonidoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Models\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function show(sonido $sonido)
+    public function show(Material $material)
     {
         //
     }
@@ -78,26 +78,26 @@ class SonidoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Models\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,sonido $sonido)
+    public function edit(Request $request, Material $materialprestado)
     {
         $requestObj = $request->all();
-        $code = $requestObj['codigo'];
-        unset($requestObj['codigo']);
-        $sonidoDB = sonido::where('codigo', $code)->update($requestObj);
-        // return $sonidoDB;
+        $code = $requestObj['id'];
+        unset($requestObj['id']);
+        $materialDB = Material::where('id', $code)->update($requestObj);
+        return $materialDB;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatesonidoRequest  $request
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Http\Requests\UpdateMaterialRequest  $request
+     * @param  \App\Models\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatesonidoRequest $request, sonido $sonido)
+    public function update(UpdateMaterialRequest $request, Material $material)
     {
         //
     }
@@ -105,10 +105,10 @@ class SonidoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Models\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function destroy(sonido $sonido)
+    public function destroy(Material $material)
     {
         //
     }

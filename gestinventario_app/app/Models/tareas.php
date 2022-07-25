@@ -15,7 +15,7 @@ class tareas extends Model
         'diaTarea',
         'horarioTarea',
         'lugarTarea',
-        'cod_tarea',
+        'id',
     ];
 
     protected $fillable = [

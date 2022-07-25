@@ -14,16 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('credenciales', function (Blueprint $table) {
-            $table->string('dni');
-            $table->string('nombre');
-            $table->string('apellidos');
-            $table->string('user');
-            $table->string('password');
-            $table->string('categoria');
-            $table->string('anio_ingreso');
-            $table->string('direccion');
-            $table->string('telefono');
-            $table->id();
+            $table->string('dni')->primary();
+            $table->string('nombre')->nullable();
+            $table->string('apellidos')->nullable();
+            $table->string('user')->nullable();
+            $table->string('password')->nullable();
+            $table->string('categoria')->nullable();
+            $table->string('anio_ingreso')->nullable();
+            $table->string('direccion')->nullable();
+            $table->string('telefono')->nullable();
+            //$table->id();
             $table->timestamps();
         });
     }

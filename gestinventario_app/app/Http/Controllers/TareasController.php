@@ -84,9 +84,9 @@ class TareasController extends Controller
     public function edit(Request $request,tareas $tareas)
     {
         $requestObj = $request->all();
-        $code = $requestObj['codigo'];
-        unset($requestObj['codigo']);
-        $tareaDB = tareas::where('cod_tarea', $code)->update($requestObj);
+        $code = $requestObj['id'];
+        unset($requestObj['id']);
+        $tareaDB = tareas::where('id', $code)->update($requestObj);
         // return $tareaDB;
     }
 
