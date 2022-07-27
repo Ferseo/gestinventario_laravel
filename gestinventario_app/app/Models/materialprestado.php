@@ -34,4 +34,15 @@ class materialprestado extends Model
     ];
 
     public $timestamps = false;
+
+    /**
+     * Funcion que relaciona un material con los materiales prestados,
+     * se utiliza 'hasMany' por que en un prestamo puedes añadir 
+     * muchos materiales.
+     *
+     * @return 
+     */
+    public function material(){
+        return $this->hasOne(Material::class);
+    }
 }

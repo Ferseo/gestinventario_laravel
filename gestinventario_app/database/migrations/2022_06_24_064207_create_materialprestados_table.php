@@ -16,13 +16,13 @@ return new class extends Migration
     {
         Schema::create('materialprestados', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Material::class);
-            $table->string('materialPrestado')->nullable();
-            $table->string('diaRetirada')->nullable();
-            $table->string('diaEntrega')->nullable();
-            $table->string('estadoMaterial')->nullable();
+            //$table->foreignIdFor(Material::class);
+            $table->string('material_prestado')->nullable();
+            $table->string('dia_retirada')->nullable();
+            $table->string('dia_entrega')->nullable();
+            $table->string('estado_material')->nullable();
             $table->string('observaciones')->nullable();
-            $table->string('personaPrestamo')->nullable();
+            $table->string('persona_prestamo')->nullable();
             $table->string('devuelto')->nullable();
             $table->string('estado_devolucion')->nullable();
             $table->string('trabajador_presta')->nullable();
