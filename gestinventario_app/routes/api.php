@@ -40,7 +40,8 @@ Route::controller(MaterialController::class)->group(function () {
 Route::controller(MaterialprestadoController::class)->group(function () {
     Route::get('/materialprestado', 'getAll');
     Route::post('/materialprestado/store', 'store'); 
-    Route::put('/materialprestado/edit', 'edit');   
+    Route::put('/materialprestado/edit', 'edit');
+    Route::put('/materialprestado/delete', 'delete');   
 });
 
 
