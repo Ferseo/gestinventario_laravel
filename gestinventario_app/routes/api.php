@@ -33,7 +33,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::controller(MaterialController::class)->group(function () {
     Route::get('/material', 'getAll');   
     Route::post('/material/store', 'store'); 
-    Route::put('/material/edit', 'edit');    
+    Route::put('/material/update', 'update');    
+    Route::delete('/material/delete', 'delete');    
 });
 
 
