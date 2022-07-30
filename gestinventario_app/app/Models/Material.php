@@ -13,7 +13,8 @@ class Material extends Model
     protected $material = [
         'id',
         'categoria',
-        'tipo_Material',
+        // Estaría guay saber los tipo de materiales que se pueden almacenar en la base de datos.
+        'tipo_material',
         'marca',
         'modelo',
         'cantidad',
@@ -29,7 +30,7 @@ class Material extends Model
 
     protected $fillable = [
         'categoria',
-        'tipo_Material',
+        'tipo_material',
         'marca',
         'modelo',
         'cantidad',
@@ -43,16 +44,4 @@ class Material extends Model
         'observaciones',
     ];
 
-    public $timestamps = false;
-
-    /**
-     * Funcion que relaciona un material con los materiales prestados,
-     * se utiliza 'hasOne' por que un material solo puede ser prestado 
-     * una vez
-     *
-     * @return 
-     */
-    // public function material_prestado(){
-    //     return $this->hasOne(materialprestado::class);
-    // }
 }

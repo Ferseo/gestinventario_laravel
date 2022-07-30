@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tareas extends Model
+class Tarea extends Model
 {
     use HasFactory;
 
@@ -26,5 +26,4 @@ class tareas extends Model
         'lugarTarea',
     ];
 
-    public $timestamps = false;
 }
