@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('tareas', function (Blueprint $table) {
             $table->id();
-            $table->string('tipoTarea')->nullable();
-            $table->string('trabajadorDesempenia')->nullable();
-            $table->string('diaTarea')->nullable();
-            $table->string('horarioTarea')->nullable();
-            $table->string('lugarTarea')->nullable();
-            $table->string('realizada')->nullable(); 
+            $table->string('tipo_tarea')->nullable();
+            $table->string('trabajador_desempenia')->nullable();
+            $table->string('dia_tarea')->nullable();
+            $table->string('horario_tarea')->nullable();
+            $table->string('lugar_tarea')->nullable();
+            $table->tinyInteger('is_realizada')->nullable(); 
             $table->timestamps();
         });
     }

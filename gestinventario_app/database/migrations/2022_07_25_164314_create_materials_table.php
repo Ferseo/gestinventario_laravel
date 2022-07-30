@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('materials', function (Blueprint $table) {
-           // $table->increments('id');
            $table->id();
            $table->string('categoria')->nullable();
            $table->string('tipo_material')->nullable();
@@ -27,7 +26,8 @@ return new class extends Migration
            $table->string('anio_compra')->nullable();
            $table->string('tipo_conexion')->nullable();
            $table->string('ult_revision')->nullable();
-           $table->string('is_active')->nullable();
+           $table->tinyInteger('is_active')->nullable();
+           $table->tinyInteger('is_prestado')->nullable();
            $table->string('observaciones')->nullable();
            $table->timestamps();
         });
