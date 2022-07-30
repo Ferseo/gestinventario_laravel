@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tareas;
-use App\Http\Requests\StoretareasRequest;
-use App\Http\Requests\UpdatetareasRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class TareasController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,10 @@ class TareasController extends Controller
      */
     public function getAll()
     {
-        $tareas = tareas::all();
-        if($tareas){
-            echo "todo bien payo";
-            return response()->json($tareas);
+        $User = User::all();
+        if($User){
+            echo "si existe payo";
+            return response()->json($User);
         }else{
             echo "no existe";
         }
@@ -38,25 +36,15 @@ class TareasController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoretareasRequest  $request
+     * @param  \App\Http\Requests\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store_(StoretareasRequest $request)
+    public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param Request $request
-     * @return void
-     */
-    public function store(Request $request){
-        $tareas = json_decode($request->getContent(), true);
-        $tareasCreated = tareas::create($tareas)->get();
+        $User = json_decode($request->getContent(), true);
+        $UserCreated = User::create($User)->get();
       
-        if($tareasCreated){
+        if($UserCreated){
             return response()->json(['response' => 'Insertado con éxito'], 200);
         }
         else{
@@ -67,10 +55,10 @@ class TareasController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\tareas  $tareas
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function show(tareas $tareas)
+    public function show(User $User)
     {
         //
     }
@@ -78,26 +66,26 @@ class TareasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\tareas  $tareas
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,tareas $tareas)
+    public function edit(Request $request,User $User)
     {
         $requestObj = $request->all();
-        $code = $requestObj['id'];
-        unset($requestObj['id']);
-        $tareaDB = tareas::where('id', $code)->update($requestObj);
-        // return $tareaDB;
+        $code = $requestObj['dni'];
+        unset($requestObj['dni']);
+        $UserDB = User::where('dni', $code)->update($requestObj);
+        // return $UserDB;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatetareasRequest  $request
-     * @param  \App\Models\tareas  $tareas
+     * @param  \App\Http\Requests\UpdateUserRequest  $request
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatetareasRequest $request, tareas $tareas)
+    public function update(Request $request)
     {
         //
     }
@@ -105,10 +93,10 @@ class TareasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\tareas  $tareas
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tareas $tareas)
+    public function destroy(User $User)
     {
         //
     }

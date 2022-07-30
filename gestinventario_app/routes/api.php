@@ -2,17 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AtrezzoController;
-use App\Http\Controllers\CableadoController;
 use App\Http\Controllers\CredencialesController;
-use App\Http\Controllers\IluminacionController;
 use App\Http\Controllers\MaterialController;
-use App\Http\Controllers\MaterialmontajeController;
 use App\Http\Controllers\MaterialprestadoController;
-use App\Http\Controllers\OtrosController;
-use App\Http\Controllers\SonidoController;
-use App\Http\Controllers\TareasController;
-use App\Http\Controllers\VideoController;
+use App\Http\Controllers\TareaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +39,7 @@ Route::controller(MaterialprestadoController::class)->group(function () {
 });
 
 
-Route::controller(TareasController::class)->group(function () {
+Route::controller(TareaController::class)->group(function () {
     Route::get('/tareas', 'getAll');
     Route::post('/tareas/store', 'store');
     Route::put('/tareas/edit', 'edit');    
