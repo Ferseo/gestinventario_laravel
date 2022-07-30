@@ -14,6 +14,8 @@ return new class extends Migration
      */
     public function up()
     {
+        // TODO: Cuando se termine de testear, mirar nullables y ver cuales se van a quedar y cuales no.
+
         Schema::create('materialprestados', function (Blueprint $table) {
             
             $table->id();
