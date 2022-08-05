@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('materialprestados', function(Blueprint $table){
-            $table->foreignId('id_materials')->after('id')->constrained()->onDelete('cascade');
+        Schema::table('material_prestados', function(Blueprint $table){
+          
+            $table->foreignId('trabajador_presta')->references('id')->on('users')->after('id');
+            $table->foreignId('trabajador_recibe')->references('id')->on('users')->after('id');
+            $table->foreignId('materials_id')->after('id');
         });
 
     }

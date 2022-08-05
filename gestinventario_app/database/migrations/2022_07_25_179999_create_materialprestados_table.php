@@ -14,21 +14,16 @@ return new class extends Migration
      */
     public function up()
     {
-        // TODO: Cuando se termine de testear, mirar nullables y ver cuales se van a quedar y cuales no.
-
-        Schema::create('materialprestados', function (Blueprint $table) {
-            
+        Schema::create('material_prestados', function (Blueprint $table) {
             $table->id();
             $table->string('material_prestado')->nullable();
-            $table->string('dia_prestado')->nullable();
-            $table->string('dia_devuelto')->nullable();
+            $table->dateTime('dia_prestamo')->nullable();
+            $table->dateTime('dia_devolucion')->nullable();
             $table->string('estado_material')->nullable();
             $table->string('observaciones')->nullable();
             $table->string('persona_prestamo')->nullable();
             $table->string('estado_devolucion')->nullable();
-            $table->string('trabajador_presta')->nullable();
-            $table->string('trabajador_recibe')->nullable();
-            $table->tinyInteger('is_devuelto')->nullable();
+            
             $table->timestamps();
         });
     }
@@ -40,6 +35,5 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materialprestados');
     }
 };

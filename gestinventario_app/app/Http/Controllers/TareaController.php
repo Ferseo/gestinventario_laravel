@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Tarea;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,7 @@ class TareaController extends Controller
 {
     /**
      * Muestra una lista de todas las tareas.
+
      *
      * @return \Illuminate\Http\Response
      */

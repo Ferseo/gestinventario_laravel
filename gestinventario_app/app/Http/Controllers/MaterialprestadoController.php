@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\materialprestado;
+use App\Models\MaterialPrestado;
 use App\Http\Requests\StorematerialprestadoRequest;
 use App\Http\Requests\UpdatematerialprestadoRequest;
+use App\Models\Material;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
+ 
+RateLimiter::for('global', function (Request $request) {
+    return Limit::perMinute(1000);
+});
 
 class MaterialprestadoController extends Controller
 {
@@ -50,18 +58,28 @@ class MaterialprestadoController extends Controller
      * Undocumented function
      *
      * @param Request $request
-     * @return void
+     * @return Response
      */
     public function store(Request $request){
-        $material_prestado = json_decode($request->getContent(), true);
-        $material_prestado['devuelto']="false";
-        $material_prestadoCreated = materialprestado::create($material_prestado)->get();
-      
-        if($material_prestadoCreated){
-            return response()->json(['response' => 'Insertado con éxito'], 200);
-        }
-        else{
-            return response()->json(['response' => 'no funciona'], 200);
+            try {
+            $material_prestado = $request->all();
+            $material_prestado['devuelto']="false";
+            
+            $materialDb = Material::where('id', $material_prestado['materials_id'])->firstOrFail();
+            if($materialDb){
+                return $material_prestado;
+                $response = MaterialPrestado::create($material_prestado)->get();
+                if($response){
+                    return response()->json(["response" => "Se ha prestado el material."], 201);
+                } else {
+                    return response()->json(["error" => "No se ha podido prestar el material."], 400);
+                }
+                
+            }else {
+                return response()->json(["error"=> "Ha ocurrido un error."], 500);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(["error"=> "Ha ocurrido el siguiente error: ".$th], 500);
         }
     }
     /**
@@ -75,19 +93,29 @@ class MaterialprestadoController extends Controller
         //
     }
 
-    /**
+  /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\materialprestado  $materialprestado
+     * @param  \App\Models\credenciales  $credenciales
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, materialprestado $materialprestado)
+
+    public function edit(Request $request)
     {
-        $requestObj = $request->all();
-        $code = $requestObj['id'];
-        unset($requestObj['id']);
-        $mat_prestadoDB = materialprestado::where('id', $code)->update($requestObj);
-        return $mat_prestadoDB;
+        try {
+            $id = $request->id->all();
+            $payload = $request->payload->all();
+            
+            $userUpdated = materialprestado::where('id', $id)->update($payload);
+            if($userUpdated){
+                return response()->json(["response" => "El usuario ha sido modificado."], 201);
+            } else {
+                return response()->json(["error" => "El usuario no ha podido modificarse."], 400);
+    
+            }
+        } catch (\Throwable $th) {
+            return response()->json(["error"=> "Ha ocurrido el siguiente error: ".$th], 500);
+        }
     }
 
     /**
