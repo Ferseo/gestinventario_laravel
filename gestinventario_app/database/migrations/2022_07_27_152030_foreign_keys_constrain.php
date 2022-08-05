@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('materialmontajes', function (Blueprint $table) {
-            $table->string('tipoMaterial');
-            $table->string('cantidad');
-            $table->string('utilidad');
-            $table->string('ubicacion');
-            $table->string('observaciones');
-            $table->id();
-            $table->timestamps();
+        Schema::table('materialprestados', function(Blueprint $table){
+            $table->foreignId('id_materials')->after('id')->constrained()->onDelete('cascade');
         });
+
     }
 
     /**
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materialmontajes');
+        //
     }
 };

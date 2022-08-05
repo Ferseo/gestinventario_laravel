@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
+        // TODO: Cuando se termine de testear, mirar nullables y ver cuales se van a quedar y cuales no.
         Schema::create('tareas', function (Blueprint $table) {
-            $table->string('tipoTarea');
-            $table->string('trabajadorDesempenia');
-            $table->string('diaTarea');
-            $table->string('horarioTarea');
-            $table->string('lugarTarea');
-            $table->string('realizada');
             $table->id();
+            $table->string('tipo_tarea')->nullable();
+            $table->string('trabajador_desempenia')->nullable();
+            $table->string('dia_tarea')->nullable();
+            $table->string('horario_tarea')->nullable();
+            $table->string('lugar_tarea')->nullable();
+            $table->tinyInteger('is_realizada')->nullable(); 
             $table->timestamps();
         });
     }

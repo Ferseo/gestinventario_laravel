@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\sonido;
-use App\Http\Requests\StoresonidoRequest;
-use App\Http\Requests\UpdatesonidoRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class SonidoController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +14,13 @@ class SonidoController extends Controller
      */
     public function getAll()
     {
-        $sonido =  sonido::all();
-        if($sonido){
-         echo 'Si existe payo';
-         return response()->json($sonido);
+        $User = User::all();
+        if($User){
+            echo "si existe payo";
+            return response()->json($User);
         }else{
-         echo 'no existe';
-     }
+            echo "no existe";
+        }
     }
 
     /**
@@ -38,25 +36,15 @@ class SonidoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoresonidoRequest  $request
+     * @param  \App\Http\Requests\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store_(StoresonidoRequest $request)
+    public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param Request $request
-     * @return void
-     */
-    public function store(Request $request){
-        $sonido = json_decode($request->getContent(), true);
-        $sonidoCreated = sonido::create($sonido)->get();
+        $User = json_decode($request->getContent(), true);
+        $UserCreated = User::create($User)->get();
       
-        if($sonidoCreated){
+        if($UserCreated){
             return response()->json(['response' => 'Insertado con éxito'], 200);
         }
         else{
@@ -67,10 +55,10 @@ class SonidoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function show(sonido $sonido)
+    public function show(User $User)
     {
         //
     }
@@ -78,22 +66,26 @@ class SonidoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function edit(sonido $sonido)
+    public function edit(Request $request,User $User)
     {
-        //
+        $requestObj = $request->all();
+        $code = $requestObj['dni'];
+        unset($requestObj['dni']);
+        $UserDB = User::where('dni', $code)->update($requestObj);
+        // return $UserDB;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatesonidoRequest  $request
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Http\Requests\UpdateUserRequest  $request
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatesonidoRequest $request, sonido $sonido)
+    public function update(Request $request)
     {
         //
     }
@@ -101,10 +93,10 @@ class SonidoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function destroy(sonido $sonido)
+    public function destroy(User $User)
     {
         //
     }

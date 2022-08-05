@@ -54,6 +54,7 @@ class MaterialprestadoController extends Controller
      */
     public function store(Request $request){
         $material_prestado = json_decode($request->getContent(), true);
+        $material_prestado['devuelto']="false";
         $material_prestadoCreated = materialprestado::create($material_prestado)->get();
       
         if($material_prestadoCreated){
@@ -80,9 +81,13 @@ class MaterialprestadoController extends Controller
      * @param  \App\Models\materialprestado  $materialprestado
      * @return \Illuminate\Http\Response
      */
-    public function edit(materialprestado $materialprestado)
+    public function edit(Request $request, materialprestado $materialprestado)
     {
-        //
+        $requestObj = $request->all();
+        $code = $requestObj['id'];
+        unset($requestObj['id']);
+        $mat_prestadoDB = materialprestado::where('id', $code)->update($requestObj);
+        return $mat_prestadoDB;
     }
 
     /**
@@ -95,6 +100,21 @@ class MaterialprestadoController extends Controller
     public function update(UpdatematerialprestadoRequest $request, materialprestado $materialprestado)
     {
         //
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @param materialprestado $materialprestado
+     * @return 
+     */
+    public function delete(Request $request, materialprestado $materialprestado){
+        $requestObj = $request->all();
+        $code = $requestObj['id'];
+        unset($requestObj['id']);
+        $mat_prestadoDB = materialprestado::where('id', $code)->update($requestObj['devuelto'] = "true");
+        return $mat_prestadoDB;
     }
 
     /**

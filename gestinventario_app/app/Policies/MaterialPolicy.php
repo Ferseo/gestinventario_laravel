@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Material;
 use App\Models\User;
-use App\Models\sonido;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class SonidoPolicy
+class MaterialPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class SonidoPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Models\Material  $material
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, sonido $sonido)
+    public function view(User $user, Material $material)
     {
         //
     }
@@ -48,10 +48,10 @@ class SonidoPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Models\Material  $material
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, sonido $sonido)
+    public function update(User $user, Material $material)
     {
         //
     }
@@ -60,10 +60,10 @@ class SonidoPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Models\Material  $material
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, sonido $sonido)
+    public function delete(User $user, Material $material)
     {
         //
     }
@@ -72,10 +72,10 @@ class SonidoPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Models\Material  $material
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, sonido $sonido)
+    public function restore(User $user, Material $material)
     {
         //
     }
@@ -84,10 +84,10 @@ class SonidoPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\sonido  $sonido
+     * @param  \App\Models\Material  $material
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, sonido $sonido)
+    public function forceDelete(User $user, Material $material)
     {
         //
     }

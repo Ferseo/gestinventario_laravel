@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\Tarea;
 use App\Models\User;
 use App\Models\tareas;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -25,10 +26,10 @@ class TareasPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\tareas  $tareas
+     * @param  \App\Models\Tarea $tarea
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, tareas $tareas)
+    public function view(User $user, Tarea $tarea)
     {
         //
     }
@@ -48,10 +49,10 @@ class TareasPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\tareas  $tareas
+     * @param  \App\Models\Tarea  $tarea
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, tareas $tareas)
+    public function update(User $user, Tarea $tarea)
     {
         //
     }
@@ -60,10 +61,10 @@ class TareasPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\tareas  $tareas
+     * @param  \App\Models\Tarea  $tarea
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, tareas $tareas)
+    public function delete(User $user, Tarea $tarea)
     {
         //
     }
@@ -72,10 +73,10 @@ class TareasPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\tareas  $tareas
+     * @param  \App\Models\Tarea  $tarea
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, tareas $tareas)
+    public function restore(User $user, Tarea $tarea)
     {
         //
     }
@@ -84,10 +85,10 @@ class TareasPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\tareas  $tareas
+     * @param  \App\Models\Tarea  $tarea
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, tareas $tareas)
+    public function forceDelete(User $user, Tarea $tarea)
     {
         //
     }
