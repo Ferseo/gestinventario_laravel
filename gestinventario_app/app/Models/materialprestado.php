@@ -5,29 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class materialprestado extends Model
+class MaterialPrestado extends Model
 {
     use HasFactory;
     protected $mat_prestado = [
-        'materialPrestado',
-        'diaRetirada',
-        'diaEntrega',
-        'estadooMaterial',
+        'material_prestado',
+        'dia_retirada',
+        'dia_entrega',
+        'estado_material',
         'observaciones',
-        'personaPrestamo',
+        'persona_prestamo',
         'estado_devolucion',
         'trabajador_presta',
         'trabajador_recibe',
     ];
 
     protected $fillable = [
-        'materialPrestado',
-        'diaRetirada',
-        'diaEntrega',
-        'estadoMaterial',
+        'id_materials',
+        'material_prestado',
+        'dia_retirada',
+        'dia_entrega',
+        'estado_material',
         'observaciones',
-        'personaPrestamo',
-        'devuelto',
+        'persona_prestamo',
         'estado_devolucion',
         'trabajador_presta',
         'trabajador_recibe',

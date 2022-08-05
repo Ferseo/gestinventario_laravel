@@ -7,7 +7,7 @@ use App\Http\Requests\StoretareasRequest;
 use App\Http\Requests\UpdatetareasRequest;
 use Illuminate\Http\Request;
 
-class TareasController extends Controller
+class TareaController extends Controller
 {
     /**
      * Display a listing of the resource.

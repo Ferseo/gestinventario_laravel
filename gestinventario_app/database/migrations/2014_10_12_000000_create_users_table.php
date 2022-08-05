@@ -31,6 +31,9 @@ return new class extends Migration
      */
     public function down()
     {
+        // Para que no pete las foreign id de esta tabla
+        Schema::dropIfExists('material_prestados');
+
         Schema::dropIfExists('users');
     }
 };
